@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"
+      rel="stylesheet"
+    />
+    <title>JavaScript String Methods</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 10vh;
+        }
+        h1 {
+            text-align: center;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+        }
+        .example {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemplos de Metódos String - JavaScript</h1>
+
+    <div class="example">
+        <h2>length</h2>
+        <p><strong>Uso:</strong> Para obter o comprimento de uma string.</p>
+        <pre><code class="language-js">
+let str = "Hello, world!";
+console.log(str.length); // 13
+        </pre></code>
+        <p><strong>Boa prática:</strong> Use para validação de entrada, como limites de caracteres.</p>
+    </div>
+
+    <div class="example">
+        <h2>charAt()</h2>
+        <p><strong>Uso:</strong> Para obter um caractere em uma posição específica.</p>
+        <pre><code class="language-js">
+let str = "Hello";
+console.log(str.charAt(1)); // "e"
+        </pre></code>
+        <p><strong>Boa prática:</strong> Use para acessar caracteres específicos em loops ou validações.</p>
+    </div>
+
+    <div class="example">
+        <h2>charCodeAt()</h2>
+        <p><strong>Uso:</strong> Para obter o código Unicode de um caractere em uma posição específica.</p>
+        <pre><code class="language-js">
+let str = "A";
+console.log(str.charCodeAt(0)); // 65
+        </pre></code>
+        <p><strong>Boa prática:</strong> Útil para manipulações baseadas em códigos de caracteres, como criptografia simples.</p>
+    </div>
+
+    <div class="example">
+        <h2>at()</h2>
+        <p><strong>Uso:</strong> Para acessar um caractere em uma posição específica, suporta índices negativos.</p>
+        <pre><code class="language-js">
+let str = "Hello";
+console.log(str.at(-1)); // "o"
+        </pre></code>
+        <p><strong>Boa prática:</strong> Preferível a <code>charAt</code> por suportar índices negativos.</p>
+    </div>
+
+    <div class="example">
+        <h2>[ ]</h2>
+        <p><strong>Uso:</strong> Para acessar um caractere em uma posição específica.</p>
+        <pre><code class="language-js">
+let str = "Hello";
+console.log(str[1]); // "e"
+        </pre></code>
+        <p><strong>Boa prática:</strong> Similar a <code>charAt</code>, mas mais conciso.</p>
+    </div>
+
+    <div class="example">
+        <h2>slice()</h2>
+        <p><strong>Uso:</strong> Para extrair uma parte da string.</p>
+        <pre><code class="language-js">
+let str = "Hello, world!";
+console.log(str.slice(0, 5)); // "Hello"
+        </pre></code>
+        <p><strong>Boa prática:</strong> Use para manipulações de substring sem alterar a string original.</p>
+    </div>
+
+    <div class="example">
+        <h2>substring()</h2>
+        <p><strong>Uso:</strong> Para extrair caracteres entre dois índices.</p>
+        <pre><code class="language-js">
+let str = "Hello, world!";
+console.log(str.substring(0, 5)); // "Hello"
+        </pre></code>
+        <p><strong>Boa prática:</strong> Similar a <code>slice</code>, mas não aceita índices negativos.</p>
+    </div>
+
+    <div class="example">
+        <h2>substr()</h2>
+        <p><strong>Uso:</strong> Para extrair uma parte da string a partir de um índice, por um número específico de caracteres.</p>
+        <pre><code class="language-js">
+let str = "Hello, world!";
+console.log(str.substr(0, 5)); // "Hello"
+        </pre></code>
+        <p><strong>Boa prática:</strong> <code>substr</code> é legada; prefira <code>slice</code> ou <code>substring</code>.</p>
+    </div>
+
+    <div class="example">
+        <h2>toUpperCase()</h2>
+        <p><strong>Uso:</strong> Para converter uma string para maiúsculas.</p>
+        <pre><code class="language-js">
+let str = "Hello";
+console.log(str.toUpperCase()); // "HELLO"
+        </pre></code>
+        <p><strong>Boa prática:</strong> Útil para normalização de entrada de usuário.</p>
+    </div>
+
+    <div class="example">
+        <h2>toLowerCase()</h2>
+        <p><strong>Uso:</strong> Para converter uma string para minúsculas.</p>
+        <pre><code class="language-js">
+let str = "Hello";
+console.log(str.toLowerCase()); // "hello"
+        </pre></code>
+        <p><strong>Boa prática:</strong> Útil para normalização de entrada de usuário.</p>
+    </div>
+
+    <div class="example">
+        <h2>concat()</h2>
+        <p><strong>Uso:</strong> Para concatenar strings.</p>
+        <pre><code class="language-js">
+let str1 = "Hello";
+let str2 = "World";
+console.log(str1.concat(", ", str2, "!")); // "Hello, World!"
+        </pre></code>
+        <p><strong>Boa prática:</strong> Prefira operadores de concatenação (<code>+</code> ou <code>+=</code>) por legibilidade.</p>
+    </div>
+
+    <div class="example">
+        <h2>trim()</h2>
+        <p><strong>Uso:</strong> Para remover espaços em branco das extremidades da string.</p>
+        <pre><code class="language-js">
+let str = "  Hello  ";
+console.log(str.trim()); // "Hello"
+        </pre></code>
+        <p><strong>Boa prática:</strong> Use para limpeza de entradas de usuário.</p>
+    </div>
+
+    <div class="example">
+        <h2>trimStart()</h2>
+        <p><strong>Uso:</strong> Para remover espaços em branco do início da string.</p>
+        <pre><code class="language-js">
+let str = "  Hello  ";
+console.log(str.trimStart()); // "Hello  "
+        </pre></code>
+        <p><strong>Boa prática:</strong> Use quando apenas o início da string precisa ser limpo.</p>
+    </div>
+
+    <div class="example">
+        <h2>trimEnd()</h2>
+        <p><strong>Uso:</strong> Para remover espaços em branco do final da string.</p>
+        <pre><code class="language-js">
+let str = "  Hello  ";
+console.log(str.trimEnd()); // "  Hello"
+        </pre></code>
+        <p><strong>Boa prática:</strong> Use quando apenas o final da string precisa ser limpo.</p>
+    </div>
+
+    <div class="example">
+        <h2>padStart()</h2>
+        <p><strong>Uso:</strong> Para preencher o início da string com um caractere até um comprimento específico.</p>
+        <pre><code class="language-js">
+let str = "5";
+console.log(str.padStart(3, "0")); // "005"
+        </pre></code>
+        <p><strong>Boa prática:</strong> Útil para formatação de números ou códigos.</p>
+    </div>
+
+    <div class="example">
+        <h2>padEnd()</h2>
+        <p><strong>Uso:</strong> Para preencher o final da string com um caractere até um comprimento específico.</p>
+        <pre><code class="language-js">
+let str = "5";
+console.log(str.padEnd(3, "0")); // "500"
+        </pre></code>
+        <p><strong>Boa prática:</strong> Útil para formatação de números ou códigos.</p>
+    </div>
+
+    <div class="example">
+        <h2>repeat()</h2>
+        <p><strong>Uso:</strong> Para repetir uma string um número específico de vezes.</p>
+        <pre><code class="language-js">
+let str = "Hello";
+console.log(str.repeat(3)); // "HelloHelloHello"
+        </pre></code>
+        <p><strong>Boa prática:</strong> Útil para criar padrões ou preenchimentos repetitivos.</p>
+    </div>
+
+    <div class="example">
+        <h2>replace()</h2>
+        <p><strong>Uso:</strong> Para substituir parte da string por outra.</p>
+        <pre><code class="language-js">
+let str = "Hello, world!";
+console.log(str.replace("world", "JavaScript")); // "Hello, JavaScript!"
+        </pre></code>
+        <p><strong>Boa prática:</strong> Use para substituir substrings específicas; cuidado com expressões regulares.</p>
+    </div>
+
+    <div class="example">
+        <h2>replaceAll()</h2>
+        <p><strong>Uso:</strong> Para substituir todas as ocorrências de uma substring.</p>
+        <pre><code class="language-js">
+let str = "Hello, world! World, meet world.";
+console.log(str.replaceAll("world", "JavaScript")); // "Hello, JavaScript! JavaScript, meet JavaScript."
+        </pre></code>
+        <p><strong>Boa prática:</strong> Use para substituições globais quando não precisar de regex.</p>
+    </div>
+
+    <div class="example">
+        <h2>split()</h2>
+        <p><strong>Uso:</strong> Para dividir uma string em um array de substrings.</p>
+        <pre><code class="language-js">
+let str = "Hello, world!";
+console.log(str.split(", ")); // ["Hello", "world!"]
+        </pre></code>
+        <p><strong>Boa prática:</strong> Use para manipular e processar partes de uma string, como csv ou entradas de usuário.</p>
+    </div>
+
+    <h1>Exemplos de Métodos de Busca de String - JavaScript</h1>
+
+    <div class="example">
+        <h2>indexOf()</h2>
+        <p><strong>Uso:</strong> Para encontrar a primeira ocorrência de uma substring.</p>
+        <pre><code class="language-js">
+let str = "Hello, world!";
+console.log(str.indexOf("world")); // 7
+        </pre></code>
+        <p><strong>Boa prática:</strong> Use para encontrar a posição de uma substring específica.</p>
+    </div>
+
+    <div class="example">
+        <h2>lastIndexOf()</h2>
+        <p><strong>Uso:</strong> Para encontrar a última ocorrência de uma substring.</p>
+        <pre><code class="language-js">
+let str = "Hello, world! Hello, everyone!";
+console.log(str.lastIndexOf("Hello")); // 13
+        </pre></code>
+        <p><strong>Boa prática:</strong> Use quando precisar encontrar a última ocorrência de uma substring.</p>
+    </div>
+
+    <div class="example">
+        <h2>search()</h2>
+        <p><strong>Uso:</strong> Para encontrar a posição de uma correspondência com uma expressão regular.</p>
+        <pre><code class="language-js">
+let str = "Hello, world!";
+console.log(str.search(/world/)); // 7
+        </pre></code>
+        <p><strong>Boa prática:</strong> Use quando precisar usar expressões regulares para encontrar uma substring.</p>
+    </div>
+
+    <div class="example">
+        <h2>match()</h2>
+        <p><strong>Uso:</strong> Para encontrar correspondências com uma expressão regular.</p>
+        <pre><code class="language-js">
+let str = "Hello, world!";
+console.log(str.match(/o/g)); // ["o", "o"]
+        </pre></code>
+        <p><strong>Boa prática:</strong> Use para obter todas as correspondências de uma expressão regular.</p>
+    </div>
+
+    <div class="example">
+        <h2>matchAll()</h2>
+        <p><strong>Uso:</strong> Para encontrar todas as correspondências com uma expressão regular e retornar um iterador.</p>
+        <pre><code class="language-js">
+let str = "Hello, world! Hello, everyone!";
+let matches = str.matchAll(/Hello/g);
+for (let match of matches) {
+    console.log(match);
+}
+// ["Hello", index: 0, input: "Hello, world! Hello, everyone!", groups: undefined]
+// ["Hello", index: 13, input: "Hello, world! Hello, everyone!", groups: undefined]
+        </pre></code>
+        <p><strong>Boa prática:</strong> Use quando precisar de todas as correspondências detalhadas com uma expressão regular.</p>
+    </div>
+
+    <div class="example">
+        <h2>includes()</h2>
+        <p><strong>Uso:</strong> Para verificar se uma string contém uma substring específica.</p>
+        <pre><code class="language-js">
+let str = "Hello, world!";
+console.log(str.includes("world")); // true
+        </pre></code>
+        <p><strong>Boa prática:</strong> Use para verificações rápidas de presença de substrings.</p>
+    </div>
+
+    <div class="example">
+        <h2>startsWith()</h2>
+        <p><strong>Uso:</strong> Para verificar se uma string começa com uma substring específica.</p>
+        <pre><code class="language-js">
+let str = "Hello, world!";
+console.log(str.startsWith("Hello")); // true
+        </pre></code>
+        <p><strong>Boa prática:</strong> Use para validações de prefixos de string.</p>
+    </div>
+
+    <div class="example">
+        <h2>endsWith()</h2>
+        <p><strong>Uso:</strong> Para verificar se uma string termina com uma substring específica.</p>
+        <pre><code class="language-js">
+let str = "Hello, world!";
+console.log(str.endsWith("world!")); // true
+        </pre></code>
+        <p><strong>Boa prática:</strong> Use para validações de sufixos de string.</p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-javascript.min.js"></script>
+ 
+</body>
+</html>
