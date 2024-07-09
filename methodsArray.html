@@ -19,21 +19,25 @@
     <p>
       O método <code>length</code> retorna o número de elementos em um array.
     </p>
-    <pre><code class="language-js">let array = [1, 2, 3, 4, 5];
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
 console.log(array.length); // 5</code></pre>
 
     <h3>Array toString()</h3>
     <p>
       O método <code>toString()</code> retorna uma string representando o array.
     </p>
-    <pre><code class="language-js">let array = [1, 2, 3, 4, 5];
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
 console.log(array.toString()); // "1,2,3,4,5"</code></pre>
 
     <h3>Array at()</h3>
     <p>
-      O método <code>at()</code> foi introduzido no ES2022 e permite acessar elementos usando índices negativos.
+      O método <code>at()</code> foi introduzido no ES2022 e permite acessar
+      elementos usando índices negativos.
     </p>
-    <pre><code class="language-js">let array = [1, 2, 3, 4, 5];
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
 console.log(array.at(2)); // 3
 console.log(array.at(-1)); // 5</code></pre>
 
@@ -42,14 +46,16 @@ console.log(array.at(-1)); // 5</code></pre>
       O método <code>join()</code> junta todos os elementos do array em uma
       string.
     </p>
-    <pre><code class="language-js">let array = [1, 2, 3, 4, 5];
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
 console.log(array.join("-")); // "1-2-3-4-5"</code></pre>
 
     <h3>Array pop()</h3>
     <p>
       O método <code>pop()</code> remove o último elemento do array e o retorna.
     </p>
-    <pre><code class="language-js">let array = [1, 2, 3, 4, 5];
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
 let lastElement = array.pop();
 console.log(lastElement); // 5
 console.log(array); // [1, 2, 3, 4]</code></pre>
@@ -59,7 +65,8 @@ console.log(array); // [1, 2, 3, 4]</code></pre>
       O método <code>push()</code> adiciona um ou mais elementos ao final do
       array e retorna o novo comprimento do array.
     </p>
-    <pre><code class="language-js">let array = [1, 2, 3, 4];
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4];
 let newLength = array.push(5);
 console.log(newLength); // 5
 console.log(array); // [1, 2, 3, 4, 5]</code></pre>
@@ -71,7 +78,8 @@ console.log(array); // [1, 2, 3, 4, 5]</code></pre>
       O método <code>shift()</code> remove o primeiro elemento do array e o
       retorna.
     </p>
-    <pre><code class="language-js">let array = [1, 2, 3, 4, 5];
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
 let firstElement = array.shift();
 console.log(firstElement); // 1
 console.log(array); // [2, 3, 4, 5]</code></pre>
@@ -81,7 +89,8 @@ console.log(array); // [2, 3, 4, 5]</code></pre>
       O método <code>unshift()</code> adiciona um ou mais elementos ao início do
       array e retorna o novo comprimento do array.
     </p>
-    <pre><code class="language-js">let array = [2, 3, 4, 5];
+    <pre><code class="language-js">
+let array = [2, 3, 4, 5];
 let newLength = array.unshift(1);
 console.log(newLength); // 5
 console.log(array); // [1, 2, 3, 4, 5]</code></pre>
@@ -89,9 +98,12 @@ console.log(array); // [1, 2, 3, 4, 5]</code></pre>
     <h3>Array delete</h3>
     <p>
       O operador <code>delete</code> remove um elemento do array, mas não altera
-      o comprimento do array. Evite usar o operador <code>delete</code> em arrays, pois ele não ajusta o comprimento do array e deixa elementos indefinidos.
+      o comprimento do array. Evite usar o operador <code>delete</code> em
+      arrays, pois ele não ajusta o comprimento do array e deixa elementos
+      indefinidos.
     </p>
-    <pre><code class="language-js">let array = [1, 2, 3, 4, 5];
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
 delete array[2];
 console.log(array); // [1, 2, empty, 4, 5]
 console.log(array.length); // 5</code></pre>
@@ -101,7 +113,8 @@ console.log(array.length); // 5</code></pre>
       O método <code>concat()</code> junta dois ou mais arrays e retorna um novo
       array, sem modificar os originais.
     </p>
-    <pre><code class="language-js">let array1 = [1, 2, 3];
+    <pre><code class="language-js">
+let array1 = [1, 2, 3];
 let array2 = [4, 5, 6];
 let newArray = array1.concat(array2);
 console.log(newArray); // [1, 2, 3, 4, 5, 6]</code></pre>
@@ -111,23 +124,31 @@ console.log(newArray); // [1, 2, 3, 4, 5, 6]</code></pre>
       O método <code>copyWithin()</code> copia uma parte do array para outra
       posição no mesmo array, sem alterar o comprimento do array.
     </p>
-    <pre><code class="language-js">let array = [1, 2, 3, 4, 5];
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
 array.copyWithin(0, 3);
 console.log(array); // [4, 5, 3, 4, 5]</code></pre>
 
     <h3>Array flat()</h3>
     <p>
       O método <code>flat()</code> cria um novo array com todos os elementos
-      sub-array concatenados até a profundidade especificada, tornando mais fácil trabalhar com dados aninhados.
+      sub-array concatenados até a profundidade especificada, tornando mais
+      fácil trabalhar com dados aninhados.
     </p>
-    <pre><code class="language-js">let array = [1, 2, [3, 4, [5, 6]]];
+    <pre><code class="language-js">
+let array = [1, 2, [3, 4, [5, 6]]];
 let flatArray = array.flat(2);
 console.log(flatArray); // [1, 2, 3, 4, 5, 6]</code></pre>
 
     <h3>Array splice()</h3>
-    <p>O método <code>splice()</code> adiciona/remova elementos de um array. O primeiro parâmetro é o índice para iniciar as mudanças, o segundo é o número de elementos a remover, e os parâmetros subsequentes são os novos elementos a serem adicionados.
+    <p>
+      O método <code>splice()</code> adiciona/remova elementos de um array. O
+      primeiro parâmetro é o índice para iniciar as mudanças, o segundo é o
+      número de elementos a remover, e os parâmetros subsequentes são os novos
+      elementos a serem adicionados.
     </p>
-    <pre><code class="language-js">let array = [1, 2, 3, 4, 5];
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
 array.splice(2, 1, "novo");
 console.log(array); // [1, 2, "novo", 4, 5]</code></pre>
 
@@ -136,7 +157,8 @@ console.log(array); // [1, 2, "novo", 4, 5]</code></pre>
       O método <code>toSpliced()</code> retorna um novo array com alguns
       elementos removidos e/ou adicionados, sem modificar o array original.
     </p>
-    <pre><code class="language-js">let array = [1, 2, 3, 4, 5];
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
 let newArray = array.toSpliced(2, 1, "novo");
 console.log(newArray); // [1, 2, "novo", 4, 5]
 console.log(array); // [1, 2, 3, 4, 5]</code></pre>
@@ -144,11 +166,262 @@ console.log(array); // [1, 2, 3, 4, 5]</code></pre>
     <h3>Array slice()</h3>
     <p>
       O método <code>slice()</code> retorna uma cópia superficial de uma porção
-      de um array em um novo array. O primeiro parâmetro é o índice inicial e o segundo é o índice final (não incluído).
+      de um array em um novo array. O primeiro parâmetro é o índice inicial e o
+      segundo é o índice final (não incluído).
     </p>
-    <pre><code class="language-js">let array = [1, 2, 3, 4, 5];
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
 let newArray = array.slice(1, 3);
 console.log(newArray); // [2, 3]</code></pre>
+    <h2>Array Sort Methods</h2>
+
+    <h3>Alphabetic Sort</h3>
+
+    <h3>Array sort()</h3>
+    <p>
+      O método <code>sort()</code> ordena os elementos de um array em ordem
+      alfabética. Por padrão, ele ordena os elementos como strings.
+    </p>
+    <pre><code class="language-js">
+let array = ['banana', 'apple', 'orange'];
+array.sort();
+console.log(array); // ['apple', 'banana', 'orange']</code></pre>
+
+    <h3>Array reverse()</h3>
+    <p>
+      O método <code>reverse()</code> inverte a ordem dos elementos em um array.
+    </p>
+    <pre><code class="language-js">
+let array = ['banana', 'apple', 'orange'];
+array.reverse();
+console.log(array); // ['orange', 'apple', 'banana']</code></pre>
+
+    <h3>Array toSorted()</h3>
+    <p>
+      O método <code>toSorted()</code> retorna uma nova cópia do array ordenado,
+      sem modificar o array original.
+    </p>
+    <pre><code class="language-js">
+let array = ['banana', 'apple', 'orange'];
+let sortedArray = array.toSorted();
+console.log(sortedArray); // ['apple', 'banana', 'orange']
+console.log(array); // ['banana', 'apple', 'orange']</code></pre>
+
+    <h3>Array toReversed()</h3>
+    <p>
+      O método <code>toReversed()</code> retorna uma nova cópia do array com a
+      ordem dos elementos invertida, sem modificar o array original.
+    </p>
+    <pre><code class="language-js">
+let array = ['banana', 'apple', 'orange'];
+let reversedArray = array.toReversed();
+console.log(reversedArray); // ['orange', 'apple', 'banana']
+console.log(array); // ['banana', 'apple', 'orange']</code></pre>
+
+    <h3>Sorting Objects</h3>
+    <p>
+      Para ordenar arrays de objetos, é necessário fornecer uma função de
+      comparação ao método <code>sort()</code>.
+    </p>
+    <pre><code class="language-js">
+let array = [{name: 'John', age: 30}, {name: 'Jane', age: 25}, {name: 'Jim', age: 35}];
+array.sort((a, b) => a.age - b.age);
+console.log(array); // [{name: 'Jane', age: 25}, {name: 'John', age: 30}, {name: 'Jim', age: 35}]</code></pre>
+
+    <h3>Numeric Sort</h3>
+
+    <h3>Numeric Sort</h3>
+    <p>
+      Para ordenar números, é necessário fornecer uma função de comparação ao
+      método <code>sort()</code>.
+    </p>
+    <pre><code class="language-js">
+let array = [5, 2, 9, 1, 5, 6];
+array.sort((a, b) => a - b);
+console.log(array); // [1, 2, 5, 5, 6, 9]</code></pre>
+
+    <h3>Random Sort</h3>
+    <p>
+      Para ordenar um array de forma aleatória, pode-se utilizar uma função de
+      comparação que retorne valores aleatórios.
+    </p>
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
+array.sort(() => Math.random() - 0.5);
+console.log(array); // [3, 5, 1, 2, 4] (ordem aleatória)</code></pre>
+
+    <h3>Math.min()</h3>
+    <p>
+      O método <code>Math.min()</code> retorna o menor valor de um conjunto de
+      números.
+    </p>
+    <pre><code class="language-js">
+let array = [5, 2, 9, 1, 5, 6];
+let min = Math.min(...array);
+console.log(min); // 1</code></pre>
+
+    <h3>Math.max()</h3>
+    <p>
+      O método <code>Math.max()</code> retorna o maior valor de um conjunto de
+      números.
+    </p>
+    <pre><code class="language-js">
+let array = [5, 2, 9, 1, 5, 6];
+let max = Math.max(...array);
+console.log(max); // 9</code></pre>
+
+    <h3>Home made Min()</h3>
+    <p>Um método caseiro para encontrar o menor valor em um array.</p>
+    <pre><code class="language-js">
+let array = [5, 2, 9, 1, 5, 6];
+let min = array.reduce((a, b) => a < b ? a : b);
+console.log(min); // 1</code></pre>
+
+    <h3>Home made Max()</h3>
+    <p>Um método caseiro para encontrar o maior valor em um array.</p>
+    <pre><code class="language-js">
+let array = [5, 2, 9, 1, 5, 6];
+let max = array.reduce((a, b) => a > b ? a : b);
+console.log(max); // 9</code></pre>
+
+    <h2>Array Iteration Methods</h2>
+    <p>Os métodos de iteração de arrays operam em cada item do array.</p>
+
+    <h3>Array forEach()</h3>
+    <p>
+      O método <code>forEach()</code> executa uma função em cada elemento do
+      array.
+    </p>
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
+array.forEach(element => console.log(element)); // 1 2 3 4 5</code></pre>
+
+    <h3>Array map()</h3>
+    <p>
+      O método <code>map()</code> cria um novo array com os resultados da
+      chamada de uma função para cada elemento do array.
+    </p>
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
+let newArray = array.map(x => x * 2);
+console.log(newArray); // [2, 4, 6, 8, 10]</code></pre>
+
+    <h3>Array flatMap()</h3>
+    <p>
+      O método <code>flatMap()</code> primeiro mapeia cada elemento usando uma
+      função de mapeamento e, em seguida, achata o resultado em um novo array.
+    </p>
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
+let newArray = array.flatMap(x => [x, x * 2]);
+console.log(newArray); // [1, 2, 2, 4, 3, 6, 4, 8, 5, 10]</code></pre>
+
+    <h3>Array filter()</h3>
+    <p>
+      O método <code>filter()</code> cria um novo array com todos os elementos
+      que passaram no teste implementado pela função fornecida.
+    </p>
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
+let newArray = array.filter(x => x > 3);
+console.log(newArray); // [4, 5]</code></pre>
+
+    <h3>Array reduce()</h3>
+    <p>
+      O método <code>reduce()</code> executa uma função redutora em cada
+      elemento do array, resultando em um único valor de retorno.
+    </p>
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
+let sum = array.reduce((accumulator, currentValue) => accumulator + currentValue);
+console.log(sum); // 15</code></pre>
+
+    <h3>Array reduceRight()</h3>
+    <p>
+      O método <code>reduceRight()</code> aplica uma função redutora em cada
+      elemento do array (da direita para a esquerda) para reduzir a um único
+      valor.
+    </p>
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
+let sum = array.reduceRight((accumulator, currentValue) => accumulator + currentValue);
+console.log(sum); // 15</code></pre>
+
+    <h3>Array every()</h3>
+    <p>
+      O método <code>every()</code> verifica se todos os elementos do array
+      passam por um teste (fornecido como uma função).
+    </p>
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
+let allAboveZero = array.every(x => x > 0);
+console.log(allAboveZero); // true</code></pre>
+
+    <h3>Array some()</h3>
+    <p>
+      O método <code>some()</code> verifica se pelo menos um elemento no array
+      passa por um teste (fornecido como uma função).
+    </p>
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
+let someAboveThree = array.some(x => x > 3);
+console.log(someAboveThree); // true</code></pre>
+
+    <h3>Array from()</h3>
+    <p>
+      O método <code>from()</code> cria uma nova instância de array a partir de
+      um objeto iterável ou similar a array.
+    </p>
+    <pre><code class="language-js">
+let arrayLike = {0: 'a', 1: 'b', 2: 'c', length: 3};
+let array = Array.from(arrayLike);
+console.log(array); // ['a', 'b', 'c']</code></pre>
+
+    <h3>Array keys()</h3>
+    <p>
+      O método <code>keys()</code> retorna um novo objeto Array Iterator que
+      contém as chaves de índice para cada elemento no array.
+    </p>
+    <pre><code class="language-js">
+let array = ['a', 'b', 'c'];
+let iterator = array.keys();
+for (let key of iterator) {
+console.log(key); // 0 1 2
+}</code></pre>
+
+    <h3>Array entries()</h3>
+    <p>
+      O método <code>entries()</code> retorna um novo objeto Array Iterator que
+      contém pares chave/valor para cada índice no array.
+    </p>
+    <pre><code class="language-js">
+let array = ['a', 'b', 'c'];
+let iterator = array.entries();
+for (let entry of iterator) {
+console.log(entry); // [0, 'a'] [1, 'b'] [2, 'c']
+}</code></pre>
+
+    <h3>Array with()</h3>
+    <p>
+      O método <code>with()</code> retorna um novo array com o valor no índice
+      fornecido substituído pelo novo valor, sem modificar o array original.
+    </p>
+    <pre><code class="language-js">
+let array = [1, 2, 3, 4, 5];
+let newArray = array.with(2, 'novo');
+console.log(newArray); // [1, 2, 'novo', 4, 5]
+console.log(array); // [1, 2, 3, 4, 5]</code></pre>
+
+    <h3>Array Spread (...)</h3>
+    <p>
+      O operador de espalhamento <code>(...)</code> permite que um array seja
+      expandido em elementos individuais.
+    </p>
+    <pre><code class="language-js">
+let array1 = [1, 2, 3];
+let array2 = [4, 5, 6];
+let combinedArray = [...array1, ...array2];
+console.log(combinedArray); // [1, 2, 3, 4, 5, 6]</code></pre>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-javascript.min.js"></script>
