@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estudo Reduce</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Explorando o método <code class="language-js">reduce()</code> em JavaScript</h1>
+
+    <h2>SOMAR</h2>
+
+    <h3>
+      Usar reduce para somar valores em um array é um dos usos mais comuns.
+    </h3>
+    <pre><code class="language-js">
+const numeros = [1, 2, 3, 4, 5];
+const soma = numeros.reduce((acumulador, valorAtual) => acumulador + valorAtual, 0);
+console.log(soma); // Saída: 15
+</code></pre>
+
+    <h2>CONTAR FREQUÊNCIA</h2>
+
+    <h3>Contar a frequência de cada item em um array.</h3>
+    <pre><code class="language-js">
+const frutas = ['maçã', 'banana', 'laranja', 'maçã', 'laranja', 'banana', 'maçã'];
+const frequencia = frutas.reduce((acumulador, fruta) => {
+  // Se a fruta ainda não existe no acumulador, inicializa com 0 e incrementa em 1
+  acumulador[fruta] = (acumulador[fruta] || 0) + 1;
+  return acumulador;
+}, {});
+console.log(frequencia); // Saída: { maçã: 3, banana: 2, laranja: 2 }
+    </code></pre>
+
+    <h2>AGRUPAR POR PROPRIEDADE</h2>
+
+    <h3>Agrupar objetos em um array por uma propriedade específica</h3>
+    <pre><code class="language-js">
+const pessoas = [
+  { nome: 'Alice', idade: 21 },
+  { nome: 'Bob', idade: 21 },
+  { nome: 'Charlie', idade: 25 }
+];
+const agrupadoPorIdade = pessoas.reduce((acumulador, pessoa) => {
+  //Se a idade ainda não existe no acumulador, inicializa com um array vazio e adiciona a pessoa
+  (acumulador[pessoa.idade] = acumulador[pessoa.idade] || []).push(pessoa);
+  return acumulador;
+}, {});
+console.log(agrupadoPorIdade);
+/* Saída: { 
+  '21': [ { nome: 'Alice', idade: 21 }, { nome: 'Bob', idade: 21 } ], 
+  '25': [ { nome: 'Charlie', idade: 25 } ] 
+  }
+*/</code></pre>
+
+    <h2>TRANSFORMAR EM OBJETO</h2>
+
+    <h3>
+      Transformar um array de objetos em um único objeto com uma chave
+      específica.
+    </h3>
+    <pre><code class="language-js">
+const produtos = [
+  { id: 1, nome: 'Laptop', preco: 1000 },
+  { id: 2, nome: 'Mouse', preco: 50 },
+  { id: 3, nome: 'Teclado', preco: 100 }
+];
+const mapaDeProdutos = produtos.reduce((acumulador, produto) => {
+  // Adiciona cada produto ao acumulador usando o id como chave
+  acumulador[produto.id] = produto;
+  return acumulador;
+}, {});
+console.log(mapaDeProdutos);
+// Saída: { '1': { id: 1, nome: 'Laptop', preco: 1000 }, '2': { id: 2, nome: 'Mouse', preco: 50 }, '3': { id: 3, nome: 'Teclado', preco: 100 } }
+</code></pre>
+
+    <h2>REMOVER DUPLICATAS</h2>
+    <h3>Criar um array com elementos únicos.</h3>
+
+    <pre><code class="language-js">
+const numerosRepetidos = [1, 2, 3, 4, 4, 5, 6, 6];
+const numerosUnicos = numerosRepetidos.reduce((acumulador, numero) => {
+  // Adiciona o número ao acumulador apenas se ele ainda não está presente
+  if (!acumulador.includes(numero)) {
+    acumulador.push(numero);
+}
+  return acumulador;
+}, []);
+console.log(numerosUnicos); // Saída: [1, 2, 3, 4, 5, 6]
+</code></pre>
+
+    <h2>ACHATAR MATRIZ</h2>
+    <h3>
+      Quando você tem um array de arrays e quer achatá-lo em um único array,
+      reduce é muito útil.
+    </h3>
+
+    <pre><code class="language-js">
+const matrizAninhada = [[1, 2], [3, 4], [5, 6]];
+const matrizAchatada = matrizAninhada.reduce((acumulador, valorAtual) => {
+  // Concatena o array atual ao acumulador
+  return acumulador.concat(valorAtual);
+}, []);
+
+console.log(matrizAchatada); // Saída: [1, 2, 3, 4, 5, 6]
+</code></pre>
+
+    <h2>CALCULAR MÉDIA</h2>
+    <h3>
+      Calcular a média dos valores em um array pode ser feito eficientemente com
+      reduce.
+    </h3>
+
+    <pre><code class="language-js">
+const notas = [10, 7, 4, 8];
+
+const media = notas.reduce((acumulador, notaAtual, indice, array) => {
+  // Soma a nota atual ao acumulador
+  acumulador += notaAtual;
+  // Se é o último elemento, divide pela quantidade de elementos para obter a média
+  if (indice === array.length - 1) {
+    return acumulador / array.length;
+  }
+  return acumulador;
+}, 0);
+
+console.log(media); // Saída: 7.25
+</code></pre>
+
+    <h2>REMOVER FALSOS</h2>
+    <h3>
+      Remover valores falsy (como null, undefined, 0, false, NaN, e strings
+      vazias) de um array.
+    </h3>
+
+    <pre><code class="language-js">
+const arrayComValoresFalsos = [0, 1, false, 2, '', 3, 'a', 'e' * 23, NaN, 's', 34];
+
+const arrayCompactado = arrayComValoresFalsos.reduce((acumulador, valorAtual) => {
+  // Adiciona ao acumulador apenas se o valor atual for truthy
+  if (valorAtual) {
+    acumulador.push(valorAtual);
+  }
+  return acumulador;
+}, []);
+
+console.log(arrayCompactado); // Saída: [1, 2, 3, 'a', 's', 34]
+</code></pre>
+
+    <h2>INVERTER LINHAS E COLUNAS</h2>
+    <h3>
+      Transformar uma matriz (array de arrays) de modo que as linhas se tornem
+      colunas e vice-versa.
+    </h3>
+
+    <pre><code class="language-js">
+const matriz = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+
+const matrizTransposta = matriz[0].map((_, indiceColuna) => 
+  // Cria uma nova linha para cada coluna
+  matriz.reduce((acumulador, linha) => {
+    // Adiciona o elemento da linha atual na coluna correspondente ao acumulador
+    acumulador.push(linha[indiceColuna]);
+    return acumulador;
+  }, [])
+);
+
+console.log(matrizTransposta);
+// Saída: [
+//   [1, 4, 7],
+//   [2, 5, 8],
+//   [3, 6, 9]
+// ]
+</code></pre>
+
+    <h2>FILTRAR E MAPEAR</h2>
+    <h3>
+      Se você quiser filtrar e mapear um array em uma única passagem, você pode
+      usar reduce para realizar ambas as operações ao mesmo tempo.
+    </h3>
+    <p>Exemplo: elevar ao quadrado apenas os números pares.</p>
+    <pre><code class="language-js">
+const sequenciaNumerica = [1, 2, 3, 4, 5, 6];
+
+const quadradosPares = sequenciaNumerica.reduce((acumulador, numero) => {
+  // Verifica se o número é par e adiciona ao acumulador o quadrado do número
+  if (numero % 2 === 0) {
+    acumulador.push(numero * numero);
+  }
+  return acumulador;
+}, []);
+
+console.log(quadradosPares); // Saída: [4, 16, 36]
+</code></pre>
+    <h2>ENCADEAR PROMISES</h2>
+    <h3>
+      Se você precisa executar uma série de promises sequencialmente, reduce
+      pode ser usado para encadear essas promises.
+    </h3>
+
+    <pre><code class="language-js">
+const funcoesPromise = [
+() => Promise.resolve(1),
+() => Promise.resolve(2),
+() => Promise.resolve(3)
+];
+
+const encadearPromises = funcoesPromise.reduce((acumulador, funcaoAtual) => {
+// Encadeia a execução da função atual na promessa acumulada
+return acumulador.then(funcaoAtual);
+}, Promise.resolve());
+
+encadearPromises.then(resultado => {
+console.log(resultado); // Saída: 3 (resultado da última promise)
+});
+</code></pre>
+
+    <h2>EXECUTAR ASSÍNCRONO</h2>
+    <h3>Executar operações assíncronas em série, acumulando resultados.</h3>
+
+    <pre><code class="language-js">
+const urls = ['url1', 'url2', 'url3'];
+
+const buscarDados = async (url) => {
+// Simula uma chamada de API que retorna dados após 1 segundo
+return new Promise((resolve) => setTimeout(() => resolve(`Dados de ${url}`), 1000));
+};
+
+const buscarTodosDados = async (listaUrls) => {
+const resultados = await listaUrls.reduce(async (promessaAcumulada, url) => {
+// Espera a promessa acumulada para continuar
+const acumulador = await promessaAcumulada;
+// Faz a chamada assíncrona para buscar dados
+const dados = await buscarDados(url);
+// Adiciona os dados ao acumulador
+acumulador.push(dados);
+return acumulador;
+}, Promise.resolve([])); // Inicia com uma promessa resolvida com um array vazio
+
+return resultados;
+};
+
+buscarTodosDados(urls).then(console.log);
+// Saída (depois de 3 segundos): ['Dados de url1', 'Dados de url2', 'Dados de url3']
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-javascript.min.js"></script>
+  </body>
+</html>
