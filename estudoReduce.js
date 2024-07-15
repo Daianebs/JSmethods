@@ -29,8 +29,11 @@ const agrupadoPorIdade = pessoas.reduce((acumulador, pessoa) => {
   return acumulador;
 }, {});
 console.log(agrupadoPorIdade);
-// Saída: { '21': [ { nome: 'Alice', idade: 21 }, { nome: 'Bob', idade: 21 } ], '25': [ { nome: 'Charlie', idade: 25 } ] }
-
+/* Saída: { 
+'21': [ { nome: 'Alice', idade: 21 }, { nome: 'Bob', idade: 21 } ], 
+'25': [ { nome: 'Charlie', idade: 25 } ] 
+}
+*/
 // TRANSFORMAR EM OBJETO: Transformar um array de objetos em um único objeto com uma chave específica.
 
 const produtos = [
